@@ -354,21 +354,10 @@ Sincerely,
 [Insert Your Name]`;
 
 /**
- * Handle Formal Complaint Email Generation & Copy
+ * Handle Formal Complaint Template Copy
  */
 function setupEscalationMatrixHandlers() {
-  const openEmailDraftBtn = document.getElementById('openEmailDraftBtn');
   const copyComplaintTemplateBtn = document.getElementById('copyComplaintTemplateBtn');
-
-  if (openEmailDraftBtn) {
-    openEmailDraftBtn.addEventListener('click', () => {
-      const to = "ceoindia@aexp.com";
-      const cc = "pnoindia@aexp.com,AEBCNodalOfficer@aexp.com,Head-Customerservicesindia@aexp.com,Manager-Customerservicesindia@aexp.com";
-      const subject = encodeURIComponent("URGENT: Formal Notice & Grievance - Unlawful Retrospective Membership Rewards Clawback");
-      const body = encodeURIComponent(COMPLAINT_TEMPLATE);
-      window.location.href = `mailto:${to}?cc=${cc}&subject=${subject}&body=${body}`;
-    });
-  }
 
   if (copyComplaintTemplateBtn) {
     copyComplaintTemplateBtn.addEventListener('click', async () => {
@@ -393,7 +382,7 @@ function setupEscalationMatrixHandlers() {
 
       if (copied) {
         const originalText = copyComplaintTemplateBtn.innerHTML;
-        copyComplaintTemplateBtn.innerHTML = '<span class="text-emerald-400 font-bold">✓ Copied Template!</span>';
+        copyComplaintTemplateBtn.innerHTML = '<span class="text-emerald-400 font-bold">✓ Copied Complaint Draft!</span>';
         setTimeout(() => {
           copyComplaintTemplateBtn.innerHTML = originalText;
           if (typeof lucide !== 'undefined') lucide.createIcons();
@@ -487,6 +476,18 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       currentRegion = currentRegion === 'india' ? 'global' : 'india';
       updateRegionLinks();
+    });
+  }
+
+  // Enhanced iOS handler for App Store link
+  if (appStoreLink) {
+    appStoreLink.addEventListener('click', (e) => {
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        const appId = currentRegion === 'india' ? '984568659' : '363717292';
+        // Directly trigger native App Store protocol with write-review prompt
+        window.location.href = `itms-apps://apps.apple.com/app/id${appId}?action=write-review`;
+      }
     });
   }
 
