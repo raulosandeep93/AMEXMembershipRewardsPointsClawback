@@ -80,6 +80,7 @@ const BASE_VOTES = 14832;
 // DOM Elements
 const voteCounterEl = document.getElementById('voteCounter');
 const headerCounterEl = document.getElementById('headerCounter');
+const calloutCounterEl = document.getElementById('calloutCounter');
 const reviewDisplayEl = document.getElementById('reviewDisplay');
 const copyIndexBadgeEl = document.getElementById('copyIndexBadge');
 const charCountEl = document.getElementById('charCount');
@@ -126,6 +127,10 @@ function updateCounterDisplay(animate = false) {
   
   if (headerCounterEl) {
     headerCounterEl.textContent = formatted;
+  }
+  
+  if (calloutCounterEl) {
+    calloutCounterEl.textContent = formatted;
   }
 }
 

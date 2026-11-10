@@ -1,9 +1,19 @@
-/* Custom Styles & Polishes for Amex Protest Campaign */
+/* Custom Styles & Mobile Ergonomics for Amex Protest Campaign */
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 /* Smooth custom scrollbars */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,15 +36,6 @@
   user-select: all;
 }
 
-/* Card hover transitions */
-.hover-scale {
-  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-scale:hover {
-  transform: translateY(-2px);
-}
-
 /* Confetti container safe bounds */
 canvas#confetti-canvas {
   position: fixed !important;
@@ -49,7 +50,6 @@ canvas#confetti-canvas {
 
 @keyframes counterBump {
   0% { transform: scale(1); }
-  50% { transform: scale(1.15); color: #F87171; }
+  50% { transform: scale(1.12); color: #F87171; }
   100% { transform: scale(1); }
 }
-
