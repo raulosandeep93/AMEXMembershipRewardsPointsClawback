@@ -485,6 +485,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Enhanced iOS handler for App Store link
+  if (appStoreLink) {
+    appStoreLink.addEventListener('click', (e) => {
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) {
+        const appId = currentRegion === 'india' ? '984568659' : '363717292';
+        // Directly trigger native App Store protocol with write-review prompt
+        window.location.href = `itms-apps://apps.apple.com/app/id${appId}?action=write-review`;
+      }
+    });
+  }
+
   if (quickSelectBtn) {
     quickSelectBtn.addEventListener('click', () => {
       allCopiesModal.classList.remove('hidden');
