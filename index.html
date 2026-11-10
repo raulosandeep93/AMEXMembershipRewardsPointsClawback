@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hold Amex Accountable | Stop the Unfair MR Points Clawback</title>
+  <meta name="description" content="American Express has wiped out hard-earned Membership Rewards points from loyal cardholders. Take action now: copy an authentic review, rate 1-star on App Store & Play Store, and demand accountability.">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hold Amex Accountable: The Great MR Points Clawback">
+  <meta property="og:description" content="Thousands of cardholders had their legitimate Membership Rewards confiscated without due process. Join our 1-star campaign now!">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#EF4444',
+              redDark: '#DC2626',
+              amexBlue: '#002663',
+              amexLight: '#006FCF',
+              slateBg: '#0B0F19',
+              cardBg: '#131B2E',
+              borderDark: '#1E293B',
+              accentRed: '#FF334B'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Menlo', 'monospace']
+          },
+          animation: {
+            'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
+            'float': 'float 3s ease-in-out infinite',
+            'shine': 'shine 1.5s ease-in-out infinite'
+          },
+          keyframes: {
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 15px rgba(239, 68, 68, 0.4)' },
+              '50%': { boxShadow: '0 0 30px rgba(239, 68, 68, 0.8)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Canvas Confetti for satisfying copy action -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#080C14] text-slate-100 font-sans min-h-screen selection:bg-red-500 selection:text-white flex flex-col justify-between antialiased">
+
+  <!-- Top Alert Banner -->
+  <div class="bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white py-2.5 px-4 text-center text-xs md:text-sm font-semibold tracking-wide uppercase shadow-lg flex items-center justify-center gap-2">
+    <span class="inline-block w-2.5 h-2.5 rounded-full bg-white animate-ping"></span>
+    <span>Consumer Action Alert: Unilateral Amex Membership Rewards Wipeout Affecting Cardholders</span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="border-b border-slate-800/80 bg-[#0B101E]/90 backdrop-blur-md sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-red-500 to-rose-700 flex items-center justify-center text-white font-black text-xl shadow-md shadow-red-950">
+          ✕
+        </div>
+        <div>
+          <span class="font-extrabold text-lg tracking-tight text-white flex items-center gap-1.5">
+            Hold Amex Accountable
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30">Movement</span>
+          </span>
+          <p class="text-[11px] text-slate-400 font-medium">Protect Customer Rights & Earned Rewards</p>
+        </div>
+      </div>
+
+      <!-- Navigation Buttons in Header -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="#escalation-matrix" class="text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 px-3 py-1.5 rounded-full transition duration-150 flex items-center gap-1.5">
+          <i data-lucide="scale" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span class="hidden sm:inline">Escalation Matrix</span>
+          <span class="sm:hidden">Escalate</span>
+        </a>
+
+        <!-- Live Counter Pill in Header -->
+        <div class="flex items-center gap-2 bg-slate-900/90 border border-red-500/30 rounded-full px-3.5 py-1.5 shadow-inner">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+          <span class="text-xs text-slate-300 font-medium hidden md:inline">Downvotes Logged:</span>
+          <span id="headerCounter" class="text-xs font-black text-red-400 font-mono">14,832</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-5xl mx-auto px-4 py-8 md:py-12 flex-1 w-full space-y-10">
+
+    <!-- HERO SECTION: Title & Story paragraph -->
+    <section class="text-center space-y-5">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-950/60 border border-red-500/40 text-red-300 text-xs md:text-sm font-semibold tracking-wide">
+        <i data-lucide="alert-triangle" class="w-4 h-4 text-red-400"></i>
+        Arbitrary MR Points Confiscation & Breach of Trust
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+        Earned In Good Faith. <br class="hidden sm:inline" />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-rose-400 to-amber-300">
+          Stolen Overnight by American Express.
+        </span>
+      </h1>
+
+      <!-- Counter Hero Banner -->
+      <div class="pt-2">
+        <div class="inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-6 bg-gradient-to-b from-[#141C30] to-[#0E1524] border border-red-500/40 rounded-2xl p-4 sm:px-8 sm:py-5 shadow-2xl relative overflow-hidden">
+          <div class="absolute -right-12 -top-12 w-32 h-32 bg-red-500/10 rounded-full blur-2xl pointer-events-none"></div>
+          
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-xl bg-red-500/20 border border-red-500/40 flex items-center justify-center text-red-400">
+              <i data-lucide="thumbs-down" class="w-6 h-6"></i>
+            </div>
+            <div class="text-left">
+              <div class="text-xs text-slate-400 font-medium uppercase tracking-wider">Community Protest Count</div>
+              <div class="text-2xl sm:text-3xl md:text-4xl font-black text-white font-mono tracking-tight flex items-baseline gap-1">
+                <span id="voteCounter" class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-rose-200">14,832</span>
+                <span class="text-xs text-red-400 font-sans font-bold uppercase tracking-wider">+1 just now</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="h-px sm:h-10 w-full sm:w-px bg-slate-800"></div>
+
+          <div class="text-xs sm:text-sm text-slate-300 text-center sm:text-left font-medium max-w-xs">
+            <strong class="text-red-400 font-bold block sm:inline">people have voted down.</strong>
+            Please join hands and shame Amex for this anti-consumer move!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP-BY-STEP ACTION FLOW (1-2-3) -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-[#101728] border border-slate-800 rounded-xl p-4 flex items-start gap-3.5">
+        <div class="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center font-bold text-sm shrink-0">
+          1
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-sm">Copy Review Copy</h3>
+          <p class="text-xs text-slate-400 mt-0.5">We generated 10 unique, authentic review templates. Hit "Copy Review Text".</p>
+        </div>
+      </div>
+
+      <div class="bg-[#101728] border border-slate-800 rounded-xl p-4 flex items-start gap-3.5">
+        <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold text-sm shrink-0">
+          2
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-sm">Open Store & Give 1★</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Click Google Play Store or Apple App Store button to open the Amex app listing directly.</p>
+        </div>
+      </div>
+
+      <div class="bg-[#101728] border border-slate-800 rounded-xl p-4 flex items-start gap-3.5">
+        <div class="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center font-bold text-sm shrink-0">
+          3
+        </div>
+        <div>
+          <h3 class="font-bold text-white text-sm">Paste & Submit</h3>
+          <p class="text-xs text-slate-400 mt-0.5">Paste your copied review, rate 1 star, and submit. The public counter updates instantly!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE REVIEW GENERATOR & COPY BOX -->
+    <section class="bg-gradient-to-b from-[#131B2E] to-[#0E1524] border-2 border-red-500/30 rounded-2xl p-5 sm:p-7 md:p-8 shadow-2xl relative">
+      <!-- Glow effect -->
+      <div class="absolute -top-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-red-500/10 blur-3xl pointer-events-none"></div>
+
+      <!-- Review Header Bar -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pb-4 border-b border-slate-800">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wider">Dynamic Anti-Spam Copy Loaded</span>
+          </div>
+          <h2 class="text-lg sm:text-xl font-bold text-white mt-1 flex items-center gap-2">
+            <span>Your Assigned Review Copy</span>
+            <span id="copyIndexBadge" class="text-xs font-mono bg-red-500/20 text-red-300 border border-red-500/30 px-2 py-0.5 rounded-md">
+              Option #1 of 10
+            </span>
+          </h2>
+        </div>
+
+        <!-- Shuffle / Regenerate Button -->
+        <button id="shuffleBtn" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 px-3.5 py-2 rounded-xl transition duration-150 active:scale-95 shadow-sm">
+          <i data-lucide="shuffle" class="w-4 h-4 text-slate-400"></i>
+          <span>Shuffle / Try Another Copy</span>
+        </button>
+      </div>
+
+      <!-- Rating Preview Mockup -->
+      <div class="my-4 flex items-center justify-between bg-black/40 rounded-xl px-4 py-2.5 border border-slate-800/80">
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-slate-400 font-medium">Target App Rating:</span>
+          <div class="flex text-red-500 text-sm">
+            <span>★</span>
+            <span class="text-slate-700">★</span>
+            <span class="text-slate-700">★</span>
+            <span class="text-slate-700">★</span>
+            <span class="text-slate-700">★</span>
+          </div>
+          <span class="text-xs font-bold text-red-400 ml-1">1.0 / 5.0 (UNACCEPTABLE)</span>
+        </div>
+        <div class="text-[11px] text-slate-500 font-mono hidden sm:block">
+          Optimized for Play Store & App Store algorithms
+        </div>
+      </div>
+
+      <!-- Textarea / Display Box -->
+      <div class="relative group">
+        <div id="reviewDisplay" class="w-full bg-[#090D17] border-2 border-slate-700/70 group-hover:border-red-500/40 transition-colors rounded-xl p-4 sm:p-5 text-slate-200 text-sm sm:text-base leading-relaxed font-mono select-all focus:outline-none min-h-[140px] flex items-center">
+          Loading authentic review text...
+        </div>
+        
+        <div class="absolute top-3 right-3 text-xs text-slate-500 font-mono pointer-events-none group-hover:text-slate-400 transition-colors">
+          <span id="charCount">0</span> chars
+        </div>
+      </div>
+
+      <!-- Primary Action: Big Copy Button -->
+      <div class="mt-5 flex flex-col sm:flex-row items-center gap-3">
+        <button id="copyReviewBtn" class="w-full sm:flex-1 py-4 px-6 rounded-xl bg-gradient-to-r from-red-600 via-rose-600 to-red-700 hover:from-red-500 hover:to-rose-600 active:scale-[0.99] text-white font-extrabold text-base sm:text-lg shadow-xl shadow-red-950/60 border border-red-400/30 transition-all flex items-center justify-center gap-2.5 group cursor-pointer animate-pulse-glow">
+          <i data-lucide="copy" class="w-5 h-5 group-hover:rotate-6 transition-transform"></i>
+          <span id="copyBtnText">Copy Review Content (Increases Counter)</span>
+        </button>
+
+        <button id="quickSelectBtn" class="w-full sm:w-auto py-4 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-sm font-semibold transition active:scale-95 flex items-center justify-center gap-2" title="View all 10 copies in a popup">
+          <i data-lucide="list" class="w-4 h-4 text-slate-400"></i>
+          <span>View All 10 Copies</span>
+        </button>
+      </div>
+
+      <!-- Notification Toast container -->
+      <div id="copyToast" class="hidden mt-3 p-3 bg-emerald-950/90 border border-emerald-500/50 rounded-xl text-emerald-300 text-xs sm:text-sm font-medium flex items-center justify-between transition-all">
+        <div class="flex items-center gap-2">
+          <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400"></i>
+          <span><strong>Copied to clipboard!</strong> Counter has been incremented. Now choose your store below to paste and rate 1 star!</span>
+        </div>
+        <button id="closeToast" class="text-emerald-400 hover:text-white text-xs underline ml-2">Dismiss</button>
+      </div>
+
+      <!-- STORE NAVIGATION BUTTONS -->
+      <div class="mt-8 pt-6 border-t border-slate-800">
+        <div class="text-center sm:text-left mb-4">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-slate-300 flex items-center justify-center sm:justify-start gap-2">
+            <i data-lucide="external-link" class="w-4 h-4 text-red-400"></i>
+            Step 2: Choose Your Platform & Post Your 1-Star Review
+          </h3>
+          <p class="text-xs text-slate-400 mt-0.5">Clicking opens the official Amex App page directly in your app store so you can paste instantly.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <!-- Google Play Store Button -->
+          <a id="playStoreLink" href="https://play.google.com/store/apps/details?id=com.americanexpress.android.acctsvcs.in" target="_blank" rel="noopener noreferrer" class="group bg-[#0B101E] hover:bg-[#131B2E] border-2 border-slate-700 hover:border-red-500/60 rounded-xl p-4 transition-all duration-200 flex items-center justify-between shadow-lg">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186a2.008 2.008 0 0 1-1.609-.345V2.16c0-.122.583-.496 1.609-.346zm11.242 11.245l2.428 2.428-11.45 6.467 9.022-8.895zm0-2.118L5.83 2.046l11.45 6.467-2.429 2.428zm1.472 1.059l4.582 2.588c.78.441.78 1.16 0 1.602l-4.582 2.588-2.14-2.14 2.14-2.14z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 font-medium">Rate on Android</div>
+                <div class="text-base font-bold text-white group-hover:text-red-400 transition-colors">Google Play Store</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-bold text-red-400 bg-red-500/10 px-2.5 py-1.5 rounded-lg border border-red-500/20 group-hover:bg-red-500 group-hover:text-white transition-all">
+              <span>Rate 1★</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </div>
+          </a>
+
+          <!-- Apple App Store Button -->
+          <a id="appStoreLink" href="https://apps.apple.com/in/app/american-express/id363717292" target="_blank" rel="noopener noreferrer" class="group bg-[#0B101E] hover:bg-[#131B2E] border-2 border-slate-700 hover:border-red-500/60 rounded-xl p-4 transition-all duration-200 flex items-center justify-between shadow-lg">
+            <div class="flex items-center gap-3.5">
+              <div class="w-11 h-11 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.09.65-2.73 1.4-.56.64-1.05 1.7-1.01 2.76 1.06.08 2.13-.56 2.73-1.29z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="text-xs text-slate-400 font-medium">Rate on iOS / iPhone</div>
+                <div class="text-base font-bold text-white group-hover:text-red-400 transition-colors">Apple App Store</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-1.5 text-xs font-bold text-red-400 bg-red-500/10 px-2.5 py-1.5 rounded-lg border border-red-500/20 group-hover:bg-red-500 group-hover:text-white transition-all">
+              <span>Rate 1★</span>
+              <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+            </div>
+          </a>
+        </div>
+
+        <!-- Global vs Regional Toggle -->
+        <div class="mt-3 flex items-center justify-center sm:justify-end gap-2 text-xs text-slate-400">
+          <span>Region Link Target:</span>
+          <button id="regionToggle" class="text-red-400 hover:text-red-300 font-semibold underline underline-offset-2">
+            Switch to Amex Global / US Listing
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFICIAL GRIEVANCE REDRESSAL ESCALATION MATRIX -->
+    <section id="escalation-matrix" class="bg-gradient-to-b from-[#10172A] via-[#0D1322] to-[#0A0E1A] border-2 border-amber-500/30 rounded-2xl p-6 sm:p-8 space-y-7 shadow-2xl relative">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-800">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wide uppercase">
+            <i data-lucide="scale" class="w-3.5 h-3.5"></i>
+            Formal & Regulatory Channels
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2 flex items-center gap-2.5">
+            <span>Amex Grievance Redressal Escalation Matrix</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
+            Want to take formal legal or regulatory action beyond app reviews? Follow Amex India's official dispute hierarchy from helpline up to the <strong>RBI Banking Ombudsman</strong> and the <strong>CEO Office</strong>.
+          </p>
+        </div>
+
+        <!-- 1-Click Multi-Email Launcher -->
+        <div class="flex flex-wrap items-center gap-2.5">
+          <button id="openEmailDraftBtn" class="px-4 py-2.5 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 active:scale-95 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg border border-amber-400/30 transition flex items-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>Email CEO & All Nodal Officers</span>
+          </button>
+          <button id="copyComplaintTemplateBtn" class="px-3.5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 active:scale-95 text-xs font-semibold rounded-xl transition flex items-center gap-1.5" title="Copy formal escalation email draft">
+            <i data-lucide="copy" class="w-4 h-4 text-slate-400"></i>
+            <span>Copy Email Draft</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Grievance Levels Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!-- Level 1 -->
+        <div class="bg-[#090D17] border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-300">Level 1</span>
+              <span class="text-[11px] text-slate-500">First Contact</span>
+            </div>
+            <h3 class="font-bold text-white text-base mt-2">American Express Helpline</h3>
+            <p class="text-xs text-slate-400 mt-1">General helpline or chat via Amex Mobile App support.</p>
+          </div>
+          
+          <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2">
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="tel:18004193646" class="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                1800 419 3646
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800" data-copy="18004193646">Copy</button>
+            </div>
+            <div class="text-[11px] text-slate-500 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 24x7 Customer Support
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 2 -->
+        <div class="bg-[#090D17] border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">Level 2</span>
+              <span class="text-[11px] text-slate-500">Correspondence Unit</span>
+            </div>
+            <h3 class="font-bold text-white text-base mt-2">Manager - Exec. Correspondence</h3>
+            <p class="text-xs text-slate-400 mt-1">First-tier grievance management for unresolved service complaints.</p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2">
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="tel:+911246702523" class="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                +91 124 6702523
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800" data-copy="+911246702523">Copy</button>
+            </div>
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="mailto:Manager-Customerservicesindia@aexp.com" class="text-[11px] font-mono text-slate-300 hover:text-white truncate max-w-[170px]" title="Manager-Customerservicesindia@aexp.com">
+                Manager-Customerservicesindia@aexp.com
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 shrink-0" data-copy="Manager-Customerservicesindia@aexp.com">Copy</button>
+            </div>
+            <div class="text-[11px] text-slate-500 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> Mon–Fri: 8:30 am to 5:00 pm
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 3 -->
+        <div class="bg-[#090D17] border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Level 3</span>
+              <span class="text-[11px] text-slate-500">Leadership Tier</span>
+            </div>
+            <h3 class="font-bold text-white text-base mt-2">Head of Customer Service</h3>
+            <p class="text-xs text-slate-400 mt-1">Escalation when Level 2 fails to provide satisfactory resolution.</p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2">
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="tel:+911246702527" class="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                +91 124 6702527
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800" data-copy="+911246702527">Copy</button>
+            </div>
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="mailto:Head-Customerservicesindia@aexp.com" class="text-[11px] font-mono text-slate-300 hover:text-white truncate max-w-[170px]" title="Head-Customerservicesindia@aexp.com">
+                Head-Customerservicesindia@aexp.com
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 shrink-0" data-copy="Head-Customerservicesindia@aexp.com">Copy</button>
+            </div>
+            <div class="text-[11px] text-slate-500 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> Mon–Fri: 8:30 am to 5:00 pm
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 4 -->
+        <div class="bg-[#090D17] border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">Level 4</span>
+              <span class="text-[11px] text-slate-500">Statutory Officer</span>
+            </div>
+            <h3 class="font-bold text-white text-base mt-2">Nodal Officer</h3>
+            <p class="text-xs text-slate-400 mt-1">Official Nodal Officer under Indian banking customer regulations.</p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2">
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="tel:+911246702386" class="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                +91 124 6702386
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800" data-copy="+911246702386">Copy</button>
+            </div>
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="mailto:AEBCNodalOfficer@aexp.com" class="text-[11px] font-mono text-slate-300 hover:text-white truncate max-w-[170px]" title="AEBCNodalOfficer@aexp.com">
+                AEBCNodalOfficer@aexp.com
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 shrink-0" data-copy="AEBCNodalOfficer@aexp.com">Copy</button>
+            </div>
+            <div class="text-[11px] text-slate-500 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> Mon–Fri: 8:30 am to 5:00 pm
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 5 -->
+        <div class="bg-[#090D17] border border-slate-800 hover:border-slate-700 rounded-xl p-4 flex flex-col justify-between transition group">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30">Level 5</span>
+              <span class="text-[11px] text-slate-500">Apex Officer</span>
+            </div>
+            <h3 class="font-bold text-white text-base mt-2">Principal Nodal Officer (PNO)</h3>
+            <p class="text-xs text-slate-400 mt-1">Final internal escalation authority before regulatory intervention.</p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2">
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="tel:+911246702638" class="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5">
+                <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                +91 124 6702638
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800" data-copy="+911246702638">Copy</button>
+            </div>
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="mailto:pnoindia@aexp.com" class="text-[11px] font-mono text-slate-300 hover:text-white truncate max-w-[170px]" title="pnoindia@aexp.com">
+                pnoindia@aexp.com
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800 shrink-0" data-copy="pnoindia@aexp.com">Copy</button>
+            </div>
+            <div class="text-[11px] text-slate-500 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> Mon–Fri: 8:30 am to 5:00 pm
+            </div>
+          </div>
+        </div>
+
+        <!-- Level 6: Banking Ombudsman (RBI) -->
+        <div class="bg-gradient-to-b from-red-950/40 to-[#090D17] border-2 border-red-500/40 rounded-xl p-4 flex flex-col justify-between transition group shadow-lg">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-red-500/20 text-red-300 border border-red-500/40">Level 6 (Regulator)</span>
+              <span class="text-[11px] text-red-400 font-semibold">RBI Authority</span>
+            </div>
+            <h3 class="font-bold text-white text-base mt-2">RBI Banking Ombudsman</h3>
+            <p class="text-xs text-slate-300 mt-1">If Amex fails to resolve within 30 days or rejects your claim, file a formal complaint under the RBI Ombudsman Scheme.</p>
+          </div>
+
+          <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-2">
+            <div class="flex items-center justify-between bg-black/40 px-2.5 py-1.5 rounded-lg border border-slate-800">
+              <a href="tel:14448" class="text-xs font-mono font-bold text-red-400 hover:text-red-300 flex items-center gap-1.5">
+                <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+                Toll-Free: 14448
+              </a>
+              <button class="copy-field-btn text-[10px] text-slate-400 hover:text-white px-2 py-0.5 rounded bg-slate-800" data-copy="14448">Copy</button>
+            </div>
+            <a href="https://cms.rbi.org.in" target="_blank" rel="noopener noreferrer" class="w-full py-1.5 px-3 bg-red-600 hover:bg-red-500 text-white rounded-lg text-xs font-bold flex items-center justify-center gap-1.5 transition">
+              <span>Log Complaint: cms.rbi.org.in</span>
+              <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+            <div class="text-[11px] text-slate-400 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3 h-3"></i> 9:30 am to 5:15 pm
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CEO DIRECT ESCALATION SPOTLIGHT -->
+      <div class="bg-[#090D17] border-2 border-amber-500/40 rounded-xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-4 text-center sm:text-left">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-white font-black text-xl shrink-0 shadow-md">
+            <i data-lucide="briefcase" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="text-[11px] font-bold uppercase tracking-wider text-amber-400">Executive Leadership Escalation</div>
+            <div class="text-lg font-extrabold text-white">Sanjay Khanna — CEO, American Express India</div>
+            <p class="text-xs text-slate-400">Direct executive office address for urgent systemic grievance escalation.</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <a href="mailto:ceoindia@aexp.com" class="flex-1 sm:flex-initial px-4 py-2.5 bg-amber-600 hover:bg-amber-500 active:scale-95 text-white font-mono font-bold text-xs sm:text-sm rounded-xl transition flex items-center justify-center gap-2">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>ceoindia@aexp.com</span>
+          </a>
+          <button class="copy-field-btn px-3 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold border border-slate-700" data-copy="ceoindia@aexp.com">
+            Copy
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SPREAD THE WORD / SOCIAL SHARE -->
+    <section class="bg-gradient-to-r from-red-950/40 via-[#10172A] to-slate-900 border border-red-500/30 rounded-2xl p-6 sm:p-8 text-center space-y-4">
+      <h2 class="text-xl sm:text-2xl font-bold text-white">Amplify The Protest Across Social Media</h2>
+      <p class="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
+        Amex monitors public sentiment. Post on X (Twitter), Reddit, LinkedIn, and WhatsApp groups so other cardholders check their accounts and join the 1-star push!
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+        <!-- Twitter/X Share -->
+        <a id="shareTwitter" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-black hover:bg-slate-900 border border-slate-700 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition active:scale-95">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>Post on X / Twitter</span>
+        </a>
+
+        <!-- WhatsApp Share -->
+        <a id="shareWhatsApp" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 border border-emerald-500/40 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Share on WhatsApp</span>
+        </a>
+
+        <!-- Reddit Share -->
+        <a id="shareReddit" href="#" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl bg-orange-700 hover:bg-orange-600 border border-orange-500/40 text-white text-xs sm:text-sm font-semibold flex items-center gap-2 transition active:scale-95">
+          <i data-lucide="share-2" class="w-4 h-4"></i>
+          <span>Post to r/CreditCardsIndia</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ALL 10 COPIES MODAL (for users who want to pick manually) -->
+  <div id="allCopiesModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#10172A] border border-slate-700 rounded-2xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="p-4 sm:p-5 border-b border-slate-800 flex items-center justify-between">
+        <div>
+          <h3 class="font-bold text-white text-base sm:text-lg">All 10 Protest Review Templates</h3>
+          <p class="text-xs text-slate-400">Choose any template below to load and copy it directly.</p>
+        </div>
+        <button id="closeModalBtn" class="text-slate-400 hover:text-white p-2 rounded-lg hover:bg-slate-800 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div id="modalListContainer" class="p-4 sm:p-5 overflow-y-auto space-y-3 flex-1 text-sm">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-[#060910] py-6 text-center text-xs text-slate-500 space-y-2">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>Initiative created by affected American Express cardholders demanding transparency and fair treatment.</p>
+      <p class="font-mono text-slate-400">#HoldAmexAccountable #AmexPointsClawback</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

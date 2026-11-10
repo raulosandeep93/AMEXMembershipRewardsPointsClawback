@@ -1,0 +1,55 @@
+/* Custom Styles & Polishes for Amex Protest Campaign */
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080C14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E293B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #DC2626;
+}
+
+/* Review text display styling */
+#reviewDisplay {
+  white-space: pre-wrap;
+  word-break: break-word;
+  user-select: all;
+}
+
+/* Card hover transitions */
+.hover-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: translateY(-2px);
+}
+
+/* Confetti container safe bounds */
+canvas#confetti-canvas {
+  position: fixed !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+}
+
+/* Dynamic counter transition effect */
+.counter-animate {
+  animation: counterBump 0.4s ease-out;
+}
+
+@keyframes counterBump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); color: #F87171; }
+  100% { transform: scale(1); }
+}
+
