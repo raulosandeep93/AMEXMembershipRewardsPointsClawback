@@ -61,7 +61,7 @@ const REVIEW_COPIES = [
 const STORE_LINKS = {
   india: {
     playStore: "https://play.google.com/store/apps/details?id=com.americanexpress.android.acctsvcs.in",
-    appStore: "https://apps.apple.com/in/app/american-express/id363717292"
+    appStore: "https://apps.apple.com/in/app/amex-india/id984568659"
   },
   global: {
     playStore: "https://play.google.com/store/apps/details?id=com.americanexpress.android.acctsvcs.us",
