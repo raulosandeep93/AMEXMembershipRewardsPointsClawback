@@ -72,10 +72,12 @@ const STORE_LINKS = {
 let currentRegion = 'india';
 let currentCopyIndex = 0;
 
-// Counter Storage Configuration
-const COUNTER_KEY = 'amex_protest_downvote_counter';
-const USER_COPIED_KEY = 'amex_protest_user_copied';
-const BASE_VOTES = 14832;
+// Genuine Real-Time Community Counter Configuration
+const COUNTER_NAMESPACE = 'amex_clawback_community_downvotes';
+const COUNTER_API_BASE = 'https://countapi.mileshilliard.com/api/v1';
+const LOCAL_COUNTER_KEY = 'amex_genuine_downvote_counter';
+
+let currentCount = 0;
 
 // DOM Elements
 const voteCounterEl = document.getElementById('voteCounter');
@@ -101,20 +103,33 @@ const shareWhatsApp = document.getElementById('shareWhatsApp');
 const shareReddit = document.getElementById('shareReddit');
 
 /**
- * Initialize Counter from LocalStorage or baseline
+ * Fetch honest, real community downvote count from API with local cache
  */
-function getCounterValue() {
-  const stored = localStorage.getItem(COUNTER_KEY);
-  if (!stored) {
-    localStorage.setItem(COUNTER_KEY, BASE_VOTES.toString());
-    return BASE_VOTES;
+async function fetchRealCounter() {
+  // Load cached value first
+  const stored = localStorage.getItem(LOCAL_COUNTER_KEY);
+  if (stored) {
+    currentCount = parseInt(stored, 10) || 0;
+    updateCounterDisplay();
   }
-  return parseInt(stored, 10) || BASE_VOTES;
+
+  try {
+    const res = await fetch(`${COUNTER_API_BASE}/get/${COUNTER_NAMESPACE}`);
+    if (res.ok) {
+      const data = await res.json();
+      if (typeof data.value === 'number') {
+        currentCount = data.value;
+        localStorage.setItem(LOCAL_COUNTER_KEY, currentCount.toString());
+        updateCounterDisplay();
+      }
+    }
+  } catch (err) {
+    console.warn('Real counter API fetch (using local value):', err);
+  }
 }
 
 function updateCounterDisplay(animate = false) {
-  const count = getCounterValue();
-  const formatted = count.toLocaleString('en-US');
+  const formatted = currentCount.toLocaleString('en-US');
   
   if (voteCounterEl) {
     voteCounterEl.textContent = formatted;
@@ -134,11 +149,26 @@ function updateCounterDisplay(animate = false) {
   }
 }
 
-function incrementCounter() {
-  let count = getCounterValue();
-  count += 1;
-  localStorage.setItem(COUNTER_KEY, count.toString());
+async function incrementCounter() {
+  // Optimistically increment honest counter
+  currentCount += 1;
+  localStorage.setItem(LOCAL_COUNTER_KEY, currentCount.toString());
   updateCounterDisplay(true);
+
+  // Sync genuine increment with real public counter
+  try {
+    const res = await fetch(`${COUNTER_API_BASE}/hit/${COUNTER_NAMESPACE}`);
+    if (res.ok) {
+      const data = await res.json();
+      if (typeof data.value === 'number') {
+        currentCount = data.value;
+        localStorage.setItem(LOCAL_COUNTER_KEY, currentCount.toString());
+        updateCounterDisplay(true);
+      }
+    }
+  } catch (err) {
+    console.warn('Counter synced locally:', err);
+  }
 }
 
 /**
@@ -311,21 +341,6 @@ function updateSocialLinks() {
   }
 }
 
-/**
- * Simulated subtle organic ticker to reflect ongoing global activity
- */
-function startLiveSimulatedTicker() {
-  // Randomly increment by 1 every 25-45 seconds to simulate incoming votes from other users
-  const nextInterval = Math.floor(Math.random() * (45000 - 25000) + 25000);
-  setTimeout(() => {
-    let count = getCounterValue();
-    count += 1;
-    localStorage.setItem(COUNTER_KEY, count.toString());
-    updateCounterDisplay(true);
-    startLiveSimulatedTicker();
-  }, nextInterval);
-}
-
 const COMPLAINT_TEMPLATE = `To: ceoindia@aexp.com
 Cc: pnoindia@aexp.com, AEBCNodalOfficer@aexp.com, Head-Customerservicesindia@aexp.com, Manager-Customerservicesindia@aexp.com
 Subject: URGENT: Formal Notice & Grievance - Unlawful Retrospective Membership Rewards Clawback
@@ -435,8 +450,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lucide.createIcons();
   }
 
-  // Initial counter display
-  updateCounterDisplay();
+  // Fetch honest community counter from real public API
+  fetchRealCounter();
 
   // Pick random 1-of-10 review copy on landing
   pickRandomCopy();
@@ -452,9 +467,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Setup escalation matrix email & copy handlers
   setupEscalationMatrixHandlers();
-
-  // Live ticker
-  startLiveSimulatedTicker();
 
   // Button Listeners
   if (copyReviewBtn) {
@@ -476,18 +488,6 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       currentRegion = currentRegion === 'india' ? 'global' : 'india';
       updateRegionLinks();
-    });
-  }
-
-  // Enhanced iOS handler for App Store link
-  if (appStoreLink) {
-    appStoreLink.addEventListener('click', (e) => {
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-      if (isIOS) {
-        const appId = currentRegion === 'india' ? '984568659' : '363717292';
-        // Directly trigger native App Store protocol with write-review prompt
-        window.location.href = `itms-apps://apps.apple.com/app/id${appId}?action=write-review`;
-      }
     });
   }
 
